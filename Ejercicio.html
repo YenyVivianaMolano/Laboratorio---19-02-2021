@@ -1,0 +1,58 @@
+<!doctype html> <html> <head><meta charset="utf-8"/> 
+    <script>
+    var vista, frase_nueva;
+    
+    var frases = [   
+        
+        
+      "Aprende como si fueras a vivir toda la vida, y vive como si fueras a morir mañana. Charles Chaplin",
+      "Todo error deja una enseñanza, toda enseñanza deja una experiencia, y toda experiencia deja una huella",
+      "Lo único imposible es aquello que no intentas",
+      "Sueña sin miedos, vive sin límites",
+      "No tengas miedo de cometer errores, de ahí salen las mejores lecciones",
+      "La vida te pondrá obstáculos, pero los límites los pones tú",
+      "Si lo puedes imaginar, puedes lograrlo. Si lo puedes soñar, también puedes convertirte en ello",
+      "Trabajar duro por algo que no te interesa se llama estrés. Trabajar duro por algo que amas se llama pasión.",
+      "Si dudas de ti mismo, estás vencido de antemano. Henrik Ibsen.",
+      "Todos nuestros sueños pueden hacerse realidad si tenemos el coraje de ir a por ellos. Walt Disney",
+      "Encuentra lo que te hace feliz y ve hacia ello",
+      "La crítica es la fuerza del impotente. Alphonse de Lamartine.",
+      "La educación es el arma más poderosa que puedes usar para cambiar el mundo. Nelson Mandela",
+      "En la vida hay algo peor que el fracaso: el no haber intentado nada. Franklin D. Roosvelt",
+      "Nuestra mayor gloria no está en no caer nunca, sino en levantarnos cada vez que caemos. Confuncio"
+        
+    ]
+    
+    function inic(){
+      vista = document.getElementById("vista");
+      frase_nueva = document.getElementById("frase_nueva");
+      generar_vista();
+    }
+    
+    function generar_vista(){
+      vista.innerHTML = "";  
+      for (var i = 0; i < frases.length; i++) {
+        vista.innerHTML += "<p>" + frases[i] 
+            + "<button onclick='borrar(" + i + ")'>Borrar</button></p>";
+      }
+    }
+    
+    function borrar(i){
+      frases.splice(i,1);
+      generar_vista();
+    }
+    
+    function introducir_frase(){
+      frases.push(frase_nueva.value);
+      generar_vista();
+    }
+    </script>
+    </head> <body onload="inic()">
+      <h3>Citas Famosas</h3>
+    
+      <div id="vista"> </div>
+    
+      Frase: <input type="text" id="frase_nueva" />
+      <button onclick='introducir_frase()'>Añadir</button>
+    </body> </html>
+      
